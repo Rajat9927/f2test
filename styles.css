@@ -1,0 +1,95 @@
+h3 {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 29px;
+    color: #FFFFFF;
+}
+
+body {
+    background: #1E1E1E;
+    margin: 20px;
+}
+
+label {
+ 
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    color: #FFFFFF;
+}
+.container{
+    margin: 20px;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+input{
+position: relative;
+width: 300px;
+height: 30px;
+border: 1px solid #FFFFFF;
+border-radius: 5px;
+}
+button{
+width: 226px;
+height: 58px;
+left: 20px;
+top: 0px;
+
+background: #FFFFFF;
+position: relative;
+font-family: 'Inter';
+font-style: normal;
+font-weight: 300;
+font-size: 24px;
+line-height: 29px;
+text-align: center;
+color: #000000;
+}
+p{
+width: 262px;
+height: 29px;
+left: 58px;
+top: 504px;
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 15px;
+line-height: 29px;
+/* identical to box height */
+color: rgba(255, 255, 255, 0.5);
+
+}
+h6{
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 24px;
+line-height: 29px;
+color: #FF4343;
+
+}
+h5{
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 24px;
+line-height: 29px;
+/* identical to box height */
+
+
+color: #43FF78;
+}
+.headingstable{
+    background-color: green;
+}
+td{
+    background-color: white;
+}
+table{
+    width: 600px;
+}

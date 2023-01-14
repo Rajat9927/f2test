@@ -67,8 +67,9 @@ form {
 
 table,th,td {
     border: 2px solid #1a1818;
+    color: white;
     width: 40%;
-    background-color: #fff;
+    background-color: black;
     border-spacing: 15px;
     border-collapse: collapse;
     border-spacing: 16px 33px;
@@ -83,7 +84,6 @@ table,th,td {
     justify-content: center;
     width: 90%;
   }
-  tbody {
-    margin-top: 3rem;
-    box-shadow: 3px 7px 24px #f3efef96;
+  .deleteButton{
+    border-radius: 1000px;
   }

@@ -7,97 +7,111 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="script.js"></script>
 </head>
 
 <body>
     <h3>New Employees</h3>
-    <form id="myForm" action="/" onsubmit="return validateForm()">
-        <div class="container">
-            <div class="items">
-                <label>Enter Name</label><br>
-                <input type="text" name="fname" id="name">
+    <div class="conatiner">
+        <form name="myForm">
+            <div class="input-box">
+                <label for="">Name</label>
+                <input type="text" id="fname">
             </div>
-            <div class="fields">
-                <label>Enter Profession</label><br>
-                <input type="text" name="profession" id="profession">
+            <div class="input-box">
+                <label for="">Enter profession</label>
+                <input type="text" id="profession">
             </div>
-            <div class="fields">
-                <label>Enter Age</label><br>
-                <input type="number" name="age" id="age">
+            <div class="input-box">
+                <label for="">Enter Age</label>
+                <input type="number" id="age">
             </div>
+        </form>
+        <button onclick="checkdatafields()" type="submit" class="btn">Add User</button>
+        <p id="message"></p>
+        <div class="conatainer-table">
+            <div id="table"> </div>
         </div>
-        <button type="submit">Add User</button>
-    </form>
-    <h6 id="errorwarning"></h6>
-    <h5 id="success"></h5>
-    <h3 class="added">Added Employees</h3>
-    <p>You have 0 Employees</p>
-    <table id="table">
-        <tr>
-            <th class="headingstable">Name</th>
-            <th class="headingstable">Profession</th>
-            <th class="headingstable">Age</th>
-        </tr>
-        <tr>
-            <td id="empName"></td>
-            <td id="profession"></td>
-            <td id="age"></td>
-        </tr>
-        <tr>
-            <td id="empName"></td>
-            <td id="professoin"></td>
-            <td id="age"></td>
-        </tr>
-        <tr>
-            <td id="empName"></td>
-            <td id="professoin"></td>
-            <td id="age"></td>
-        </tr>
-        <tr>
-            <td id="empName"></td>
-            <td id="professoin"></td>
-            <td id="age"></td>
-        </tr>
-        <tr>
-            <td id="empName"></td>
-            <td id="professoin"></td>
-            <td id="age"></td>
-        </tr>
-        <tr>
-            <td id="empName"></td>
-            <td id="professoin"></td>
-            <td id="age"></td>
-        </tr>
-        <tr>
-            <td id="empName"></td>
-            <td id="professoin"></td>
-            <td id="age"></td>
-        </tr>
-        <tr>
-            <td id="empName"></td>
-            <td id="professoin"></td>
-            <td id="age"></td>
-        </tr>
-        <tr>
-            <td id="empName"></td>
-            <td id="professoin"></td>
-            <td id="age"></td>
-        </tr>
-        <tr>
-            <td id="empName"></td>
-            <td id="professoin"></td>
-            <td id="age"></td>
-        </tr>
-        <tr>
-            <td id="empName"></td>
-            <td id="professoin"></td>
-            <td id="age"></td>
-        </tr>
+    </div>
+    <script>
+
+        let name = document.getElementById("fname");
+        let profession = document.getElementById("profession");
+        let age = document.getElementById("age");
+        let message = document.getElementById("message");
+        EmployeObj = [];
 
 
-    </table>
+        function checkdatafields() {
+            if (name.value == "" || profession.value == "" || age.value == "") {
 
+                message.innerHTML = "Error : Please Make sure all the fileds are filed before Add in the Employe";
+                message.style.color = "red";
+                message.style.display = "block";
+            }
+
+            else {
+
+                message.innerHTML = "Sucees : Employee Add";
+                message.style.color = "#43FF78";
+                message.style.display = "block";
+                let NameF = name.value;
+                let professionF = profession.value;
+                let ageF = age.value;
+                addOnclick(NameF, professionF, ageF);
+            }
+        }
+
+        // -------------------------Table start
+        function displayTableData() {
+            var html = "<table border='1|1' class='table'>";
+
+            setTimeout(() => {
+                html + "<thead>";
+
+                html += "<tr>";
+                html += "<td>" + "SNo. " + "</td>";
+                html += "<td>"   + "Employe Name " + "</td>";
+                html += "<td>" + "Profession" + "</td>";
+                html += "<td>" + "Age" + "</td>";
+
+                html += "<td>" + "Action" + "</td>";
+                // html += "<td>" + "Action" + "</td>";
+                html += "</tr>";
+                html + "</thead>";
+
+                for (var i = 0; i < EmployeObj.length; i++) {
+                    var sno = i + 1;
+
+                    html + -"<tr>";
+                    html += "<td>" + sno + "</td>";
+
+                    html += "<td>" + EmployeObj[i].name + "</td>";
+
+                    html += "<td>" + EmployeObj[i].profession + "</td>";
+
+                    html += "<td>" + EmployeObj[i].age + "</td>";
+                    html += "<td> " + `<button type="button" onclick="removeItem(${EmployeObj[i].id})">Delete</button>` + "</td > ";
+
+                    html += "</tr>";
+                }
+
+                html += "</table>";
+                document.getElementById("table").innerHTML = html;
+            }, 200);
+        }
+        //Table Ennd
+
+        let objname = "name";
+
+        function addOnclick(NameF, propessionF, ageF) {
+            let id = EmployeObj.length + 1;
+            EmployeObj.push({ "name": NameF, "profession": propessionF, "age": ageF, "id": id });
+            displayTableData();
+        }
+        
+
+    </script>
 </body>
+
 
 </html>

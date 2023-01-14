@@ -1,18 +1,10 @@
-function validateForm() {
-    var namef = document.forms["myForm"]["fname"].value;
-    var profession = document.forms["myForm"]["profession"].value;
-    var age = document.forms["myForm"]["age"].value;
-    if (namef == "" || namef == null || profession == "" || profession == null || age == "" || age == null) {
-        document.getElementById("errorwarning").innerHTML = "Error : Please Make sure All the fields are filled before adding in an employee !";
-        return false;
-    }
-    else{
-        document.getElementById("success").innerHTML = "Success: Employee Added!";
-        let newwarr = [
-            { name: fname, profession: profession, age: age},
-          ];
-         
-          return false;
-    }
-}
+function removeItem(rec) {
+    console.log(rec);
+    var filter = EmployeObj.filter((a, i) => {
+        if (rec == a.id) {
+            EmployeObj.splice(i, 1);
+            displayTableData();
+        }
+    })
 
+}
